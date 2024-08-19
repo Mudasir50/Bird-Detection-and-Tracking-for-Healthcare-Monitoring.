@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv8 Live Stream</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        #video_feed {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐥 Chick Detection YOLOv8 Live Stream</h1>
+    <label for="camera_select">Select Camera:</label>
+    <select id="camera_select">
+        <option value="0">Camera 0</option>
+        <option value="1">Camera 1</option>
+        <!-- Add more options based on the number of available cameras -->
+    </select>
+    <br>
+    <button onclick="startStream()">Start Stream</button>
+    <br>
+    <img id="video_feed" width="640" height="480">
+    <script>
+        function startStream() {
+            var selectedCamera = document.getElementById("camera_select").value;
+            document.getElementById("video_feed").src = "/video_feed?camera=" + selectedCamera;
+        }
+    </script>
+</body>
+</html>
